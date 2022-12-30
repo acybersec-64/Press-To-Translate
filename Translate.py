@@ -13,6 +13,9 @@ import urllib.parse
 
 translator = Translator()
 
+if os.path.exists("response.txt") == False:
+    open("response.txt","w").write("")
+
 class Translate(object):
     
 
