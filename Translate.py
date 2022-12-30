@@ -91,7 +91,7 @@ class Translate(object):
             
             return response
 
-        os.system('curl "https://glosbe.com/en/fa/{}" > D:\\projects\\Translate\\response.txt'.format(urllib.parse.quote(self.Word)))
+        os.system('curl "https://glosbe.com/en/fa/{}" > %cd%\\response.txt'.format(urllib.parse.quote(self.Word)))
 
         with io.open("response.txt",'r',encoding='UTF-8') as resp:
             response = resp.read()
