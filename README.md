@@ -13,7 +13,7 @@ npm i fs --save
 
 First:
 
-@To run:
+To run:
 
 pyhon Translate.py  
 
