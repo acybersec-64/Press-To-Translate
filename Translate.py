@@ -50,11 +50,11 @@ class Translate(object):
         print("translating {}".format(self.Word))
         pattern = re.compile("[\sA-Za-z]+")
         if pattern.fullmatch(self.Word) is not None:
-            DestinationLang = self.TranslateToPersian(1)
+            TranslatedDestinationLang = self.TranslateToDestLang(1)
         
         try:
         
-            notif.show_toast("Translated {} to :".format(self.Word),DestinationLang)
+            notif.show_toast("Translated {} to :".format(self.Word),TranslatedDestinationLang)
 
         except:
         
@@ -65,7 +65,7 @@ class Translate(object):
         # else:
         
         
-        #     persian_sentences = self.TranslateToPersian(4)
+        #     persian_sentences = self.TranslateToDestLang(4)
             
         #     try:
             
@@ -76,7 +76,7 @@ class Translate(object):
         #         pass
 
      
-    def TranslateToPersian(self,id):    
+    def TranslateToDestLang(self,id):    
                 
         open("response.txt","w").write("")
 
