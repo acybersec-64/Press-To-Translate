@@ -13,8 +13,7 @@ import urllib.parse
 
 translator = Translator()
 
-if os.path.exists("response.txt") == False:
-    open("response.txt","w").write("")
+notif = ToastNotifier()
 
 class Translate(object):
     
@@ -50,13 +49,12 @@ class Translate(object):
         self.Word = pyperclip.paste()
         print("translating {}".format(self.Word))
         pattern = re.compile("[\sA-Za-z]+")
-        notif = ToastNotifier()
         if pattern.fullmatch(self.Word) is not None:
-            persian = self.TranslateToPersian(1)
+            DestinationLang = self.TranslateToPersian(1)
         
         try:
         
-            notif.show_toast("Translated {} to persian :".format(self.Word),persian)
+            notif.show_toast("Translated {} to :".format(self.Word),DestinationLang)
 
         except:
         
@@ -79,7 +77,9 @@ class Translate(object):
 
      
     def TranslateToPersian(self,id):    
-        
+                
+        open("response.txt","w").write("")
+
         if (id == 4):
 
 #            "D:\Program Files\Git\mingw64\bin\curl.exe" "https://translate.googleapis.com/translate_a/t?anno=3&client=te&format=html&v=1.0&key&sl=en&tl=fa&sp=nmt&tc=1&tk=878345.785575&mode=1"   --data-raw "q=How%20to%20Combine%20Shapes%20in%20Illustrator."   --compressed     > D:\\projects\\Translate\\response.txt
@@ -90,14 +90,16 @@ class Translate(object):
                 response = resp.read()
             
             return response
-
-        os.system('curl "https://glosbe.com/en/fa/{}" > %cd%\\response.txt'.format(urllib.parse.quote(self.Word)))
-
+        try:
+            os.system('curl "https://glosbe.com/{}/{}/{}" > %cd%\\response.txt'.format(FromThisLanguage,ToThisLanguage,urllib.parse.quote(self.Word)))
+        except:
+            notif.show_toast("couldnt translate  '"+self.Word+"'")
         with io.open("response.txt",'r',encoding='UTF-8') as resp:
             response = resp.read()
         response = response.replace("\n","")
+
         translated1 = re.findall('data-phrase="(.*?)"',response)
-        translated2 = re.findall('lang="fa" dir="rtl" >(.*?)</h3>',response)
+        translated2 = re.findall('lang="{}" dir="rtl" >(.*?)</h3>'.format(ToThisLanguage),response)
         
         # translated3 = (re.findall('<div lang="fa" dir="rtl" class=" dir--pl-2 w-2/3 text-gray-700 dense">(.*?)</div></li>',response))
             
@@ -122,6 +124,10 @@ class Translate(object):
 # requests.get("https://glosbe.com/fa/en/{}".format(PersianWord))
 
 translate = Translate()
-hotKey = input("whic keys or key pressed? ( eg: ctrl+alt+shift+t or insert and etc ... ) : ")
+FromThisLanguage = input("""eg: fa = persian, en = english , zh = chinese , etc...\nFrom Which Language: """)
+ToThisLanguage = input("""eg: fa = persian, en = english , zh = chinese , etc...\nTo Which Language: """)
+hotKey = input("Whic keys or key pressed? ( eg: ctrl+alt+shift+t or insert and etc ... ) : ")
+os.system("cls")
+print("Allright im waiting for you to select any word with your mouse and then press '{}' to Translate from  this language '{}' to this language '{}'.".format(hotKey,FromThisLanguage,ToThisLanguage))
 while True:
     translate.Handeler()
