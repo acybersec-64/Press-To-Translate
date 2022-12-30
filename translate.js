@@ -4,8 +4,6 @@ fs = require('fs');
 const args = require('minimist')(process.argv.slice(2));
 
 console.log(args._[0]);
-// console.log(args.i);
-// var regExpPersian = /,\[\\"(.*?).\",/;
 
 let fetchExample = fetch("https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&source-path=%2F&f.sid=-7564632113103245251&bl=boq_translate-webserver_20221220.08_p0&hl=en-US&soc-app=1&soc-platform=1&soc-device=1&_reqid=81044&rt=c", {
     "headers": {
