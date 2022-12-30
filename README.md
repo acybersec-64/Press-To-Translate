@@ -21,12 +21,12 @@ pyhon Translate.py
 
 Second:
 
-Give the Source Language.
+Give the Source Language. eg: 'en','zh','rus' And etc... .
 
 -------------------------
 Third:
 
-Give the Destination Language.
+Give the Destination Language. eg: 'en','zh','rus' And etc... .
 -------------------------
 
 Forth:
