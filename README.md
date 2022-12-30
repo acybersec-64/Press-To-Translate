@@ -1,4 +1,4 @@
-﻿# Press-To-Translate
+# Press-To-Translate
 
 # Installation:
 
@@ -12,7 +12,8 @@ npm i fs --save
 -------------------------
 
 First:
-To run:
+
+@To run:
 
 pyhon Translate.py  
 
