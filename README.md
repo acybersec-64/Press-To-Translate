@@ -2,6 +2,10 @@
 
 # Installation:
 
+# Run exe File and start from Step 2
+
+# Or
+
 pip install -r requirements.txt
 
 npm i fs --save
@@ -11,7 +15,7 @@ npm i fs --save
 
 -------------------------
 
-First:
+Step 1 :
 
 To run:
 
@@ -19,17 +23,17 @@ pyhon Translate.py
 
 -------------------------
 
-Second:
+Step 2 :
 
 Give the Source Language. eg: 'en' , 'zh' , 'rus'  And etc... .
 
 -------------------------
-Third:
+Step 3 :
 
 Give the Destination Language. eg: 'en' , 'zh' , 'rus'  And etc... .
 -------------------------
 
-Forth:
+Step 4 :
 
 Give Any key That you wanna translate after selected by mouse. ( "insert" is best key by personal experience.)
 
