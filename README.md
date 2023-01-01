@@ -2,7 +2,7 @@
 
 # Installation:
 
-# Run exe File and start from Step 2
+# Download Translate.rar Run exe File and start from Step 2
 
 # Or
 
